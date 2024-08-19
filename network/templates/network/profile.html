@@ -1,0 +1,19 @@
+<!-- network/templates/network/profile.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ user.username }}'s Profile</title>
+</head>
+<body>
+    <h1>{{ user.username }}'s Profile</h1>
+    <p>{{ profile.bio }}</p>
+    <h2>Posts</h2>
+    <ul>
+        {% for post in posts %}
+            <li>{{ post.content }} <em>{{ post.created_at }}</em></li>
+        {% endfor %}
+    </ul>
+    <p><a href="{% url 'index' %}">Back to Home</a></p>
+</body>
+</html>

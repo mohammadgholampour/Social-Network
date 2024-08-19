@@ -1,0 +1,23 @@
+<!-- network/templates/network/index.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Social Network</title>
+</head>
+<body>
+    <h1>All Posts</h1>
+    {% if user.is_authenticated %}
+        <p>Welcome, {{ user.username }}! <a href="{% url 'create_post' %}">Create Post</a> | <a href="{% url 'logout' %}">Logout</a></p>
+    {% else %}
+        <p><a href="{% url 'login' %}">Login</a> | <a href="{% url 'register' %}">Register</a></p>
+    {% endif %}
+    <ul>
+        {% for post in posts %}
+            <li>
+                <a href="{% url 'profile' post.author.username %}">{{ post.author.username }}</a>: {{ post.content }} <em>{{ post.created_at }}</em>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

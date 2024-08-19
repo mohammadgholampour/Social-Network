@@ -1,0 +1,17 @@
+<!-- network/templates/network/create_post.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Post</title>
+</head>
+<body>
+    <h1>Create a New Post</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Post</button>
+    </form>
+    <p><a href="{% url 'index' %}">Back to Home</a></p>
+</body>
+</html>
